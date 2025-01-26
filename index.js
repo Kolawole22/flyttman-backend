@@ -35,6 +35,7 @@ app.use(
       const allowedOrigins = [
         process.env.FRONTEND_URL || "https://flyttman.se",
         "http://localhost:3010",
+        "https://flyttmanadmin.vercel.app",
       ];
 
       if (allowedOrigins.includes(origin) || !origin) {
