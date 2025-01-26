@@ -69,6 +69,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
+app.set("trust proxy", 1);
 app.use(
   expressSession({
     secret: sessionSecret,
@@ -78,7 +79,7 @@ app.use(
       httpOnly: true,
       secure: false, //process.env.NODE_ENV === "production",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      sameSite: "lax", //process.env.NODE_ENV === "production" ? "none" : "lax",
     },
     name: "sessionId",
   })
